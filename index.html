@@ -249,10 +249,36 @@ section.how { background: var(--gray-100); }
 .tl-when { font-family: var(--font-mono); font-weight: 600; color: var(--blue-deep); font-size: 14px; }
 .tl-text { font-size: 14px; margin-top: 8px; color: var(--gray-700); line-height: 1.45; }
 @media (max-width: 760px) {
-  .timeline { grid-template-columns: 1fr; }
-  .timeline::before { display: none; }
-  .tl-item { text-align: left; display: grid; grid-template-columns: 90px 1fr; gap: 14px; align-items: center; }
-  .tl-dot { margin: 0; }
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 32px;
+  }
+  .timeline::before {
+    /* linha vira vertical à esquerda */
+    top: 8px;
+    bottom: 8px;
+    left: 7px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+  .tl-item {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    align-items: start;
+    gap: 0 14px;
+    padding-bottom: 26px;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot {
+    margin: 4px 0 0 0;
+    grid-row: 1 / span 2;
+    align-self: start;
+  }
+  .tl-when { display: block; margin-bottom: 4px; }
+  .tl-text { margin-top: 2px; }
 }
 
 /* ── 7 DIFERENCIAIS ──────────────────────────────────────────── */
